@@ -1,0 +1,11 @@
+--Upload thru scp
+scp C:/Users/fcort/Documents/Parking_Violations_Issued_Fiscal_Year_2020.zip fcortes6@220.116.230.21:/home/fcortes6
+
+--Git Bash
+ssh fcortes6@220.116.230.21
+ls -al
+unzip Parking_Violations_Issued_Fiscal_Year_2020.zip 
+hdfs dfs -mkdir ParkingViolationsIssued20
+hdfs dfs -ls
+hdfs dfs -put Parking_Violations_Issued_Fiscal_Year_2020.csv ParkingViolationsIssued20/
+hdfs dfs -ls ParkingViolationsIssued20/

@@ -1,0 +1,50 @@
+Output queries from Hive to HDFS
+Get file and save as .csv
+Use scp to download from directory to local file system
+Open files in Tableu 
+
+insert overwrite directory '/user/fcortes6/' 
+row format delimited fields terminated by ',' 
+select violation_county, COUNT(violation_county) AS Sum_of_Violation_County 
+from parking_violations_issued 
+Group By violation_county 
+Order By Sum_of_Violation_County 
+Desc LIMIT 13;
+
+hdfs dfs -get 000000_0 violation_county
+scp fcortes6@129.150.64.74:/home/fcortes6/violation_county violation_county.csv
+
+
+insert overwrite directory '/user/fcortes6/' 
+row format delimited fields terminated by ',' 
+select violation_code, COUNT(violation_code) AS Sum_Of_Violation_Code 
+from parking_violations_issued 
+Group By violation_code 
+Order By Sum_Of_Violation_Code 
+Desc LIMIT 13;
+
+hdfs dfs -get 000000_0 violation_code
+scp fcortes6@129.150.64.74:/home/fcortes6/violation_code violation_code.csv
+
+
+insert overwrite directory '/user/fcortes6/' 
+row format delimited fields terminated by ',' 
+select issuing_agency, count(issuing_agency) AS Sum_Of_Issuing_Agency 
+from parking_violations_issued 
+Group By issuing_agency 
+Order By Sum_Of_Issuing_Agency 
+Desc LIMIT 13;
+
+hdfs dfs -get 000000_0 issuing_agency
+scp fcortes6@129.150.64.74:/home/fcortes6/issuing_agency issuing_agency.csv
+
+
+insert overwrite directory '/user/fcortes6/' 
+row format delimited fields terminated by ',' 
+select Registration_State, count(Registration_State) AS Sum_Of_Registration_State 
+from parking_violations_issued 
+GROUP By Registration_State 
+Order By Sum_of_Registration_State Desc;
+
+hdfs dfs -get 000000_0 Registration_State
+scp fcortes6@129.150.64.74:/home/fcortes6/Registration_State Registration_State.csv

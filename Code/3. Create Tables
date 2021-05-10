@@ -1,0 +1,10 @@
+CREATE EXTERNAL TABLE IF NOT EXISTS Parking_Violations_Issued(Summons_Number BIGINT, Plate_Id STRING, Registration_State STRING, Plate_Type String, 
+Issue_Date STRING, Violation_Code INT, Vehicle_Body_Type STRING, Vehicle_Make STRING, Issuing_Agency STRING, Street_Code1 INT, Street_Code2 INT, 
+Street_Code3 INT, Vehicle_Expiration_Date BIGINT, Violation_Location INT, Violation_Precinct INT, Issuer_Precinct INT, Issuer_Code BIGINT, 
+Issuer_Command STRING, Issuer_Squad BIGINT, Violation_Time STRING, Time_First_Observed STRING, Violation_County STRING, 
+Violation_In_Front_Of_Or_Opposite STRING, House_Number STRING, Street_Name STRING, Intersecting_Street STRING, Date_First_Observed BIGINT, 
+Law_Section INT, Sub_Division STRING, Violation_Legal_Code STRING, Days_Parking_In_Effect STRING, From_Hours_In_Effect STRING, 
+To_Hours_In_Effect STRING, Vehicle_Color STRING, Unregistered_Vehicle INT, Vehicle_Year INT, Meter_Number STRING, Feet_From_Curb INT, 
+Violation_Post_Code STRING, Violation_Description STRING, No_Standing_or_Stopping_Violation STRING, Hydrant_Violation STRING, 
+Double_Parking_Violation STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' LOCATION '/user/fcortes6/ParkingViolationsIssued20/' 
+TBLPROPERTIES ('skip.header.line.count'='1');

@@ -1,0 +1,18 @@
+select * from Parking_Violations_Issued LIMIT 1;
+
+
+select violation_county, COUNT(violation_county) AS Sum_of_Violation_County from parking_violations_issued 
+Group By violation_county 
+Order By Sum_of_Violation_County Desc LIMIT 13;
+
+select violation_code, COUNT(violation_code) AS Sum_Of_Violation_Code from parking_violations_issued 
+Group By violation_code 
+Order By Sum_Of_Violation_Code Desc LIMIT 13;
+
+select issuing_agency, count(issuing_agency) AS Sum_Of_Issuing_Agency from parking_violations_issued 
+Group By issuing_agency 
+Order By Sum_Of_Issuing_Agency Desc LIMIT 13;
+
+select Registration_State, count(Registration_State) AS Sum_Of_Registration_State from parking_violations_issued 
+GROUP By Registration_State 
+Order By Sum_of_Registration_State Desc;
